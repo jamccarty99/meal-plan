@@ -22,6 +22,7 @@ class HomePage extends Component {
     );
   }
 
+
   onFormSubmit(event) {
       event.preventDefault();
 
@@ -29,9 +30,10 @@ class HomePage extends Component {
     }
 
   render() {
-    return (
-      <form >
+    const { handleSubmit } = this.props;
 
+    return (
+      <form onFormSubmit={handleSubmit(this.onFormSubmit.bind(this))}>
         <Field
           label="Type of Diet"
           name="diet"
@@ -53,11 +55,17 @@ class HomePage extends Component {
           component={this.renderField}
         />
         <button type="submit" className="btn btn-primary">Submit Search</button>
-        <Link to="/" className="btn btn-danger">Cancel</Link>
       </form>
     );
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchMealPlan }, dispatch);
+}
 
-export default HomePage
+const homePage = reduxForm({
+  form: 'searchForm'
+})(HomePage);
+
+export default connect(null, mapDispatchToProps)(homePage);
