@@ -10,11 +10,10 @@ export function fetchMealPlan() {
     headers: {
       "X-Mashape-Authorization": API_KEY
     }
-  })
-  console.log(request)
+  }).then(response => console.log(response))
 
   return {
     type: FETCH_MEAL_PLAN,
-    payload: request.data
+    payload: request
   };
 }
