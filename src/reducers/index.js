@@ -1,9 +1,9 @@
-import { createStore, combineReducers } from "redux";
-import MealReducer from "./reducer-meal";
+import { combineReducers } from "redux";
+import mealReducer from "./reducer-meal";
 import { reducer as formReducer } from 'redux-form'
 
 const rootReducer = combineReducers({
-  meals: MealReducer,
+  meals: mealReducer,
   form: formReducer
 });
 
