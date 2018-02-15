@@ -7,6 +7,8 @@ import promise from "redux-promise";
 
 import reducers from "./reducers";
 import HomePage from "./components/home-page";
+import SingleMeal from './components/single-meal'
+import Test from './components/Test'
 
 import 'bootstrap/dist/css/bootstrap.css'
 
@@ -17,7 +19,8 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <Switch>
-
+          <Route path="/test" component={Test} />
+          <Route path="/meals" component={SingleMeal} />
           <Route path="/" component={HomePage} />
         </Switch>
       </div>
