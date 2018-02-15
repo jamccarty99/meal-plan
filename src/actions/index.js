@@ -16,28 +16,6 @@ export function fetchMealPlan() {
 
   return {
     type: FETCH_MEAL_PLAN,
-    payload: response.data
+    payload: request.data
   };
 }
-
-
-// .then(response => {
-//   console.log("meal plan", response.data)
-//   const meals = response.data.meals;
-//   for (let i = 0; i < meals.length; i++) {
-//     const id = meals[i].id
-//     axios.get(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${id}/information`, {
-//       headers: {
-//         "X-Mashape-Authorization": API_KEY
-//       }
-//     }).then(response => {
-//         this.addMeal(response.data)
-//         console.log(response.data)
-//         this.meals = this.getMeals()
-//     })
-//   }
-// }
-// ).catch(error => {
-//   console.error(error)
-// })
-// }
