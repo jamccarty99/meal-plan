@@ -29,7 +29,7 @@ class HomePage extends Component {
 
   render() {
     return (
-      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+      <form >
         <Field
           label="Type of Diet"
           name="diet"
