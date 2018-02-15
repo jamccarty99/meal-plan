@@ -12,6 +12,8 @@ export function fetchMealPlan() {
     }
   })
 
+  console.log(request)
+
   return {
     type: FETCH_MEAL_PLAN,
     payload: request

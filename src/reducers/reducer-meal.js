@@ -1,20 +1,28 @@
-import { FETCH_MEAL_PLAN } from "../actions/index";
+import { FETCH_MEAL_PLAN } from "../actions";
 
 export default function(state = [], action) {
   switch (action.type) {
     case FETCH_MEAL_PLAN:
-      const title = action.payload.data.title
-      const id = action.payload.data.id
-      const image = action.payload.data.image
-      const readyInMinutes = action.payload.data.readyInMinutes
-      const data = {
-        title: title,
-        id: id,
-        image: image,
-        readyInMinutes: readyInMinutes
-      }
+      console.log(action.payload)
+      const data = action.payload.data.meals.map((meal) => {
+        return {
+          title: meal.title,
+          id: meal.id,
+          image: meal.image,
+          readyInMinutes: meal.readyInMinutes}
+      })
+
+      // const data = {
+      //   title: title,
+      //   id: id,
+      //   image: image,
+      //   readyInMinutes: readyInMinutes
+      // }
+
       console.log(data)
-      return state.concat([data]);
+      debugger
+      return state.concat(data);
+      
   }
   return state;
 }
