@@ -1,10 +1,10 @@
-//import _ from "lodash";
+import _ from "lodash";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Link } from "react-router-dom";
 import { Field, reduxForm } from "redux-form";
-//import {  } from "../actions";
+import { fetchMealPlan } from "../actions";
 
 class HomePage extends Component {
   renderField(field) {
@@ -22,14 +22,15 @@ class HomePage extends Component {
     );
   }
 
-  onSubmit() {
-    //TODO: submit form should get converted to an api Get call.
-    //
+  onFormSubmit(event) {
+      event.preventDefault();
+
+      this.props.fetchMealPlan();
     }
 
   render() {
     return (
-      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+      <form onFormSubmit={this.onFormSubmit.bind(this)}>
         <Field
           label="Type of Diet"
           name="diet"
