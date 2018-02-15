@@ -3,7 +3,7 @@ import MealReducer from "./reducer-meal";
 import { reducer as formReducer } from 'redux-form'
 
 const rootReducer = combineReducers({
-  meals: MealReducer
+  meals: MealReducer,
   form: formReducer
 });
 
