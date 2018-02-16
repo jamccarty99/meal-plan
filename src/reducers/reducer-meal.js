@@ -5,9 +5,10 @@ export default function(state = [], action) {
     case FETCH_MEAL_PLAN:
       if (action.payload.data.meals) {
         state = state.length > 2 ?  [] : state
-        const data = action.payload.data.meals.map((meal) => {
+        const data = action.payload.data.meals.map((meal,index) => {
           return {
             day: 1,
+            mealNumber: index % 3,
             title: meal.title,
             id: meal.id,
             image: null,
@@ -19,9 +20,10 @@ export default function(state = [], action) {
         return state.concat(data);
       } else {
         state = state.length > 20 ?  [] : state
-        const data = action.payload.data.items.map((meal) => {
+        const data = action.payload.data.items.map((meal,index) => {
             return {
               day: meal.day,
+              mealNumber: index % 3,
               title: JSON.parse(meal.value).title,
               id: JSON.parse(meal.value).id,
               image: null,
@@ -31,6 +33,7 @@ export default function(state = [], action) {
             }
           })
         const newState = state.concat(data);
+        console.log(newState)
         return newState
         }
     case FETCH_MEAL_DATA:
@@ -44,6 +47,7 @@ export default function(state = [], action) {
           updatedMeal[0].extendedIngredients.push(action.payload.data.extendedIngredients)
 
           const newState = stateCopy.concat(updatedMeal)
+          console.log(newState)
           return newState
 
       }
