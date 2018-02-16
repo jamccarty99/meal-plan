@@ -11,7 +11,7 @@ const Header = () => (
             Home
           </Link>
           --
-          <Link className="navigation-link" to="/meals">
+          <Link className="navigation-link" to="/day">
             <i className="fa fa-comments"></i> Daily Meals
           </Link>
            --

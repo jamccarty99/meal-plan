@@ -27,7 +27,7 @@ ReactDOM.render(
           <Route path="/recipe" component={MealRecipe} />
           <Route path="/week" component={WeekMeal} />
             <Route path="/test" component={Test} />
-            <Route path="/meals" component={SingleMeal} />
+            <Route path="/day" component={SingleMeal} />
             <Route path="/" component={HomePage} />
           </Switch>
       </div>
