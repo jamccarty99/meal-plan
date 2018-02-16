@@ -4,7 +4,7 @@ export default function(state = [], action) {
   switch (action.type) {
     case FETCH_MEAL_PLAN:
       if (action.payload.data.meals) {
-        state = state.length > 2 ?  [] : state
+        state = state.length > 0 ?  [] : state
         const data = action.payload.data.meals.map((meal,index) => {
           return {
             day: 1,
@@ -19,8 +19,7 @@ export default function(state = [], action) {
         })
         return state.concat(data);
       } else if (action.payload.data.items) {
-        state = state.length == 3 ? [] : state
-        state = state.length > 20 ?  [] : state
+        state = state.length < 0 ? [] : state
         const data = action.payload.data.items.map((meal,index) => {
             return {
               day: meal.day,
