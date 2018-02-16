@@ -31,6 +31,7 @@ class HomePage extends React.Component {
     this.setState({diet: event.target.value});
   }
   handleExcludeChange(event) {
+    console.log(event.target.value);
     this.setState({exclude: event.target.value});
   }
   handleCaloriesChange(event) {
@@ -50,7 +51,6 @@ class HomePage extends React.Component {
       }
     }).then(()=>this.props.history.push("/day"))
   }
-
 
   render() {
     return (
