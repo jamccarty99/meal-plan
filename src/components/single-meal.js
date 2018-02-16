@@ -3,9 +3,10 @@ import MealRecipe from './meal-recipe'
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import {fetchMealPlan, fetchMealData } from '../actions'
+import { Link } from "react-router-dom";
 
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import {faEdit} from '@fortawesome/fontawesome-pro-regular'
+import {faUtensils} from '@fortawesome/fontawesome-pro-regular'
 import {faTrashAlt} from '@fortawesome/fontawesome-pro-regular'
 class SingleMeal extends Component {
 
@@ -37,9 +38,10 @@ class SingleMeal extends Component {
                     <h3 className="card-header">{meal.title}</h3>
                     <img className="card-img-top" src={meal.image} alt={meal.title} />
                     <div className="card-body">
-                      <span className="badge-box"> <FontAwesomeIcon className="fa" icon={faEdit} /> </span>
+                      <span className="badge-box"> <FontAwesomeIcon className="fa" icon={faUtensils} /> </span>
                       <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" className="btn btn-default text-uppercase">Go to the recipe component</a>
+                      <a href="/recipe" className="btn btn-default text-uppercase">Go to the recipe component</a>
+                      <Link to={"/recipe"} className="btn btn-default text-uppercase">Recipe</Link>
                     </div>
                   </div>
                 )

@@ -9,6 +9,7 @@ export default class WeekMeal extends Component {
   render() {
     return (
       <div>
+      {this.props}
         <h1>Weekly Meal Plan</h1>
         <SingleMeal />
       </div>
