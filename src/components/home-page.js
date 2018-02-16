@@ -15,9 +15,9 @@ class HomePage extends React.Component {
 
     this.state = {
       time: 'Day',
-      diet: 'None',
+      diet: '',
       exclude: '',
-      calories: ''
+      calories: null
     }
 
     this.handleDietChange = this.handleDietChange.bind(this);
@@ -43,13 +43,9 @@ class HomePage extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(this.state.time);
-    console.log(this.state.diet);
-    console.log(this.state.exlude);
-    console.log(this.state.calories);
-    // We need to go and fetch weather data
-    this.props.fetchMealPlan().then(response => {
-      const meals = response.payload.data.meals
+    console.log(this.state);
+    this.props.fetchMealPlan(this.state).then(response => {
+      const meals = this.props.meals
       for (let i=0;i<meals.length;i++) {
         this.props.fetchMealData(meals[i].id)
       }
@@ -65,15 +61,17 @@ class HomePage extends React.Component {
     return (
       <div className="search-form">
         <h1>Meal Plan Requests</h1>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Day or Week:
-            <select value={this.state.time} onChange={this.handleTimeChange}>
-              <option className="time" value="day">Day</option>
-              <option className="time" value="week">Week</option>
-            </select>
-          </label>
-          <label>
+        <form className="form-horizontal" onSubmit={this.handleSubmit}>
+          <div className="form-group row">
+            <label className="col-sm-2 col-form-label">
+              Day/Week:
+              <select className="form-control" value={this.state.time} onChange={this.handleTimeChange}>
+                <option className="time" value="day">Day</option>
+                <option className="time" value="week">Week</option>
+              </select>
+            </label>
+          </div>
+          <label className="control-label">
             Diet Type:
             <select value={this.state.diet} onChange={this.handleDietChange}>
               <option className="diet" value="none">None</option>

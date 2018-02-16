@@ -24,8 +24,8 @@ ReactDOM.render(
       <div>
         <Header />
         <Switch>
-            <Route path="/recipe" component={MealRecipe} />
-            <Route path="/week" component={WeekMeal} />
+          <Route path="/recipe" component={MealRecipe} />
+          <Route path="/week" component={WeekMeal} />
             <Route path="/test" component={Test} />
             <Route path="/meals" component={SingleMeal} />
             <Route path="/" component={HomePage} />
