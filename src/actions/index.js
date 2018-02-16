@@ -11,8 +11,15 @@ export function fetchMealPlan() {
       "X-Mashape-Authorization": API_KEY
     }
   })
-
-  console.log(request)
+  .then(response => {
+    const meals = response.data.meals
+    var APIdata = []
+      return axios.get(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${meals.id}/information`, {
+        headers: {
+          "X-Mashape-Authorization": API_KEY
+        }
+      })
+    })
 
   return {
     type: FETCH_MEAL_PLAN,
