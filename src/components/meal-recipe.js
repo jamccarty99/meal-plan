@@ -9,9 +9,22 @@ class MealRecipe extends Component {
   }
 
   render() {
+    const meal = this.props.meals[1] || {title:"",instructions:""}
     return (
-      <div className="container">
-        <h3 className="text-center mb-5">{this.props.meals[1].title}</h3>
+      <div className="container recipe">
+        <h3 className="d-flex justify-content-center align-content-center mb-5">{meal.title}</h3>
+        <div className="d-flex justify-content-center align-content-center mb-5"> <img src={meal.image}></img></div>
+        <ul>
+          {
+            meal.extendedIngredients[0].map(i => (<li key={i.id}>
+
+              {i.originalString}
+
+            </li>))
+          }
+        </ul>
+        <h4>Instructions:</h4>
+        <p className="d-flex justify-content-center align-content-center mb-5">{meal.instructions}</p>
       </div>
     )
   }
