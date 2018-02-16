@@ -10,11 +10,11 @@ const Header = () => (
             Home
           </Link>
           --
-          <Link className="navigation-link" to="/day">
+          <Link className="navigation-link" to="/meals">
             <i className="fa fa-comments"></i> Daily Meals
           </Link>
            --
-          <Link className="navigation-link" to="/week">
+          <Link className="navigation-link" to="/test">
             <i className="fa fa-comments"></i> Weekly Meals
           </Link>
           --

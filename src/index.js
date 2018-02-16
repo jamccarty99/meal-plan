@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import promise from "redux-promise";
+import Header from "./components/header"
 
 import rootReducers from "./reducers";
 import HomePage from "./components/home-page";
@@ -18,11 +19,12 @@ ReactDOM.render(
   <Provider store={createStoreWithMiddleware(rootReducers)}>
     <BrowserRouter>
       <div>
-        <Switch>
-          <Route path="/test" component={Test} />
-          <Route path="/meals" component={SingleMeal} />
-          <Route path="/" component={HomePage} />
-        </Switch>
+        <Header />
+          <Switch>
+            <Route path="/test" component={Test} />
+            <Route path="/meals" component={SingleMeal} />
+            <Route path="/" component={HomePage} />
+          </Switch>
       </div>
     </BrowserRouter>
   </Provider>,
