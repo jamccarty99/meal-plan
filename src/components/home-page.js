@@ -31,7 +31,6 @@ class HomePage extends React.Component {
     this.setState({diet: event.target.value});
   }
   handleExcludeChange(event) {
-    console.log(event.target.value);
     this.setState({exclude: event.target.value});
   }
   handleCaloriesChange(event) {
@@ -96,7 +95,7 @@ class HomePage extends React.Component {
                 <input type="number" placeholder="Your target number of calories."className="calories" value={this.state.calories} onChange={this.handleCaloriesChange} />
               </div>
             <div className="col-sm-offset-2 col-sm-10">
-              <Link to={"/meals"}>
+              <Link to={"/day"}>
                 <button type="submit" className="btn btn-primary">Create Meal Plan</button>
               </Link>
             </div>
