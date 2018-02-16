@@ -6,10 +6,14 @@ class MealRecipe extends Component {
   constructor(props) {
     super(props)
 
+    console.log("recipe props",props)
+
   }
 
   render() {
-    const meal = this.props.meals[1] || {title:"",instructions:"",image:"",extendedIngredients:[[]]}
+
+    const meal = this.props.meals.find(meal => meal.id == parseInt(this.props.match.params.id,10)) || {title:"",instructions:"",image:"",extendedIngredients:[[]]}
+    console.log("recipe",meal)
     return (
       <div className="container recipe">
         <h3 className="d-flex justify-content-center align-content-center mb-5">{meal.title}</h3>

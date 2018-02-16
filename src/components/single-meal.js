@@ -24,7 +24,7 @@ class SingleMeal extends Component {
   render() {
     return (
       <div className="container">
-      {console.log('single meal', this.props)}
+        {console.log('single meal', this.props)}
         <h2 className="text-center mb-5">Daily Meal Plan</h2>
         <h3 className="text-center mb-5">Info</h3>
         <div className="row">
@@ -38,9 +38,7 @@ class SingleMeal extends Component {
                     <img className="card-img-top" src={meal.image} alt={meal.title} />
                     <div className="card-body">
                       <span className="badge-box"> <FontAwesomeIcon className="fa" icon={faUtensils} /> </span>
-                      <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="/recipe" className="btn btn-default text-uppercase">Go to the recipe component</a>
-                      <Link to={"/recipe"} className="btn btn-default text-uppercase">Recipe</Link>
+                      <Link to={`/${meal.id}`} className="btn btn-default text-uppercase">Recipe</Link>
                     </div>
                   </div>
                 )
