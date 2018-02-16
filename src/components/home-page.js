@@ -2,7 +2,11 @@ import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import './home-page.css'
-import Header from './header'
+import MealRecipe from './meal-recipe'
+import { connect } from "react-redux"
+import { bindActionCreators } from "redux"
+import {fetchMealPlan, fetchMealData} from '../actions'
+
 
 
 class HomePage extends React.Component {
@@ -43,20 +47,23 @@ class HomePage extends React.Component {
     console.log(this.state.diet);
     console.log(this.state.exlude);
     console.log(this.state.calories);
-    alert('Your meal is being planned!');
-
+    // We need to go and fetch weather data
+    this.props.fetchMealPlan().then(response => {
+      const meals = response.payload.data.meals
+      for (let i=0;i<meals.length;i++) {
+        this.props.fetchMealData(meals[i].id)
+      }
+    })
   }
 
-  onSubmit(values) {
-    this.props.fetchMealPlan(values, () => {
-      this.props.history.push("/");
-    });
+  onSubmit() {
+
+    console.log(this.state)
   }
 
   render() {
     return (
       <div className="search-form">
-        <Header/>
         <h1>Meal Plan Requests</h1>
         <form onSubmit={this.handleSubmit}>
           <label>
@@ -91,6 +98,7 @@ class HomePage extends React.Component {
             Target Calories:
             <input type="number" placeholder="Your target number of calories."className="calories" value={this.state.calories} onChange={this.handleCaloriesChange} />
           </label>
+
           <button type="submit" className="btn btn-primary">Create Meal Plan</button>
         </form>
       </div>
@@ -98,4 +106,12 @@ class HomePage extends React.Component {
   }
 }
 
-export default HomePage
+function mapStateToProps(state) {
+  return { meals: state.meals };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchMealPlan, fetchMealData }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
