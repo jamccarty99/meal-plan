@@ -26,7 +26,6 @@ class SingleMeal extends Component {
       <div className="container">
         {console.log('single meal', this.props)}
         <h2 className="text-center mb-5">Daily Meal Plan</h2>
-        <h3 className="text-center mb-5">Info</h3>
         <div className="row">
           <div className="card-deck">
             {
