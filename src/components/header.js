@@ -10,18 +10,6 @@ const Header = () => (
           <Link className="navigation-link navigation-brand" to="/">
             Home
           </Link>
-          --
-          <Link className="navigation-link" to="/day">
-            <i className="fa fa-comments"></i> Daily Meals
-          </Link>
-           --
-          <Link className="navigation-link" to="/week">
-            <i className="fa fa-comments"></i> Weekly Meals
-          </Link>
-          --
-         <Link className="navigation-link" to="/recipe">
-           <i className="fa fa-comments"></i> Single Recipe
-         </Link>
         </li>
       </ul>
 )
