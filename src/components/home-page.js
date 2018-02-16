@@ -45,7 +45,7 @@ class HomePage extends React.Component {
     event.preventDefault();
     console.log(this.state.time);
     console.log(this.state.diet);
-    console.log(this.state.exlude);
+    console.log(this.state.exclude);
     console.log(this.state.calories);
     // We need to go and fetch weather data
     this.props.fetchMealPlan().then(response => {
@@ -90,11 +90,11 @@ class HomePage extends React.Component {
               <option className="diet" value="whole30">Whole 30</option>
             </select>
           </label>
-          <label className="control-label">
+          <label>
             Food Exclusions:
             <input type="text" placeholder="A comma-separated list of ingredients." className="exclude" value={this.state.exclude} onChange={this.handleExcludeChange} />
           </label>
-          <label className="control-label">
+          <label>
             Target Calories:
             <input type="number" placeholder="Your target number of calories." className="calories" value={this.state.calories} onChange={this.handleCaloriesChange} />
           </label>
