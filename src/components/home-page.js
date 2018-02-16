@@ -48,19 +48,15 @@ class HomePage extends React.Component {
       for (let i=0;i<meals.length;i++) {
         this.props.fetchMealData(meals[i].id)
       }
-    })
+    }).then(()=>this.props.history.push("/day"))
   }
 
-  onSubmit() {
-
-    console.log(this.state)
-  }
 
   render() {
     return (
       <div className="container search-form">
         <h1 className="text-center">Meal Plan Requests</h1>
-        <form className="form-horizontal" onSubmit={this.handleSubmit}>
+        <form className="form-horizontal" >
           <div className="form-group row">
             <label className="col-sm-2 col-form-label">Day/Week:</label>
               <div className="col-sm-10">
@@ -92,12 +88,10 @@ class HomePage extends React.Component {
               </div>
             <label className="col-sm-2 col-form-label">Target Calories:</label>
               <div className="col-sm-10">
-                <input type="number" placeholder="Your target number of calories."className="calories" value={this.state.calories} onChange={this.handleCaloriesChange} />
+                <input type="number" placeholder="Your target number of calories."className="calories" value={this.state.calories ? this.state.calories: ""} onChange={this.handleCaloriesChange} />
               </div>
             <div className="col-sm-offset-2 col-sm-10">
-              <Link to={"/day"}>
-                <button type="submit" className="btn btn-primary">Create Meal Plan</button>
-              </Link>
+                <button type="submit" onClick={this.handleSubmit} className="btn btn-primary">Create Meal Plan</button>
             </div>
           </div>
         </form>
