@@ -15,9 +15,9 @@ class HomePage extends React.Component {
 
     this.state = {
       time: 'Day',
-      diet: 'None',
+      diet: '',
       exclude: '',
-      calories: undefined
+      calories: null
     }
 
     this.handleDietChange = this.handleDietChange.bind(this);
@@ -43,7 +43,7 @@ class HomePage extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     console.log(this.state);
-    this.props.fetchMealPlan().then(response => {
+    this.props.fetchMealPlan(this.state).then(response => {
       const meals = this.props.meals
       for (let i=0;i<meals.length;i++) {
         this.props.fetchMealData(meals[i].id)
@@ -57,14 +57,14 @@ class HomePage extends React.Component {
         <h1>Meal Plan Requests</h1>
         <form className="form-horizontal" onSubmit={this.handleSubmit}>
           <div className="form-group row">
-          <label className="col-sm-2 col-form-label">
-            Day/Week:
-            <select className="form-control" value={this.state.time} onChange={this.handleTimeChange}>
-              <option className="time" value="day">Day</option>
-              <option className="time" value="week">Week</option>
-            </select>
-          </label>
-        </div>
+            <label className="col-sm-2 col-form-label">
+              Day/Week:
+              <select className="form-control" value={this.state.time} onChange={this.handleTimeChange}>
+                <option className="time" value="day">Day</option>
+                <option className="time" value="week">Week</option>
+              </select>
+            </label>
+          </div>
           <label className="control-label">
             Diet Type:
             <select className="form-control" value={this.state.diet} onChange={this.handleDietChange}>
