@@ -20,7 +20,7 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <Header />
-          <Switch>
+        <Switch>
             <Route path="/test" component={Test} />
             <Route path="/meals" component={SingleMeal} />
             <Route path="/" component={HomePage} />

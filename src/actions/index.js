@@ -7,7 +7,7 @@ export const FETCH_MEAL_PLAN = "FETCH_MEAL_PLAN";
 export const FETCH_MEAL_DATA = "FETCH_MEAL_DATA"
 
 export function fetchMealPlan() {
-  const request = axios.get('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/mealplans/generate?diet=vegetarian&exclude=shellfish%2C+olives&targetCalories=2000&timeFrame=week', {
+  const request = axios.get('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/mealplans/generate?diet=vegetarian&exclude=shellfish%2C+olives&targetCalories=2000&timeFrame=day', {
       headers: { "X-Mashape-Authorization": API_KEY }
     })
 
