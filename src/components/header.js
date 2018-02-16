@@ -3,6 +3,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './header.css'
 
+
 const Header = () => (
       <ul className="navigation grid grid-gutters large-grid-fit med-grid-fit small-grid-1of2">
         <li className="grid-cell">
@@ -14,7 +15,7 @@ const Header = () => (
             <i className="fa fa-comments"></i> Daily Meals
           </Link>
            --
-          <Link className="navigation-link" to="/test">
+          <Link className="navigation-link" to="/week">
             <i className="fa fa-comments"></i> Weekly Meals
           </Link>
           --
