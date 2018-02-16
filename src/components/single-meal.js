@@ -27,7 +27,7 @@ class SingleMeal extends Component {
                     <img className="card-img-top" src={`https://spoonacular.com/recipeImages/${meal.image}`} alt={meal.title} />
                     <div className="card-body">
                       <span className="badge-box"><i className="fa fa-check"></i></span>
-                      <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <p className="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
                       <a href="#" className="btn btn-default text-uppercase">Go to the recipe component</a>
                     </div>
                   </div>

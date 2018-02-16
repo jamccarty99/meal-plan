@@ -10,6 +10,9 @@ import rootReducers from "./reducers";
 import HomePage from "./components/home-page";
 import SingleMeal from './components/single-meal'
 import Test from './components/Test'
+import WeekMeal from './components/weekly-meal'
+import MealRecipe from './components/meal-recipe'
+
 
 import 'bootstrap/dist/css/bootstrap.css'
 
@@ -21,6 +24,8 @@ ReactDOM.render(
       <div>
         <Header />
         <Switch>
+            <Route path="/recipe" component={MealRecipe} />
+            <Route path="/week" component={WeekMeal} />
             <Route path="/test" component={Test} />
             <Route path="/meals" component={SingleMeal} />
             <Route path="/" component={HomePage} />
