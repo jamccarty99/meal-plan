@@ -4,6 +4,7 @@ const ROOT_URL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/rec
 const API_KEY = "M8Na5UOHF8mshxZEgTlYkp39uyb4p1boQEkjsnP4hmi8Gk0DmY"
 
 export const FETCH_MEAL_PLAN = "FETCH_MEAL_PLAN";
+export const FETCH_MEAL_DATA = "FETCH_MEAL_DATA"
 
 export function fetchMealPlan() {
   const request = axios.get('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/mealplans/generate?diet=vegetarian&exclude=shellfish%2C+olives&targetCalories=2000&timeFrame=day', {
@@ -12,6 +13,17 @@ export function fetchMealPlan() {
 
   return {
     type: FETCH_MEAL_PLAN,
+    payload: request
+  };
+}
+
+export function fetchMealData(id) {
+  const request = axios.get(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${id}/information`, {
+      headers: { "X-Mashape-Authorization": API_KEY }
+    })
+
+  return {
+    type: FETCH_MEAL_DATA,
     payload: request
   };
 }

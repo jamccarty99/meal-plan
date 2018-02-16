@@ -2,13 +2,18 @@ import React, { Component } from 'react'
 import MealRecipe from './meal-recipe'
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-import {fetchMealPlan} from '../actions'
+import {fetchMealPlan, fetchMealData} from '../actions'
 
 class Test extends Component {
   submit() {
 
     // We need to go and fetch weather data
-    this.props.fetchMealPlan();
+    this.props.fetchMealPlan().then(response => {
+      const meals = response.payload.data.meals
+      for (let i=0;i<meals.length;i++) {
+        this.props.fetchMealData(meals[i].id)
+      }
+    })
   }
 
   render() {
@@ -25,7 +30,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchMealPlan }, dispatch);
+  return bindActionCreators({ fetchMealPlan, fetchMealData }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Test);
