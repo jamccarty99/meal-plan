@@ -12,9 +12,9 @@ import {faTrashAlt} from '@fortawesome/fontawesome-pro-regular'
 class WeekMeal extends Component {
   constructor(props) {
     super(props);
-    
+
   }
-  
+
 
   compare = (a,b) => {
     if (a.last_nom < b.last_nom)
@@ -23,31 +23,31 @@ class WeekMeal extends Component {
       return 1;
     return 0;
   }
-  
+
 
   render() {
     return (
       <div>
-      {console.log('Weekly', this.props)}
-      {
-        // console.log(this.props.meal.sort(this.compare)
-        alert(JSON.stringify(this.props.meals.sort((a, b) => {
-          nameA = Object.keys(a)[0];
-          nameB = Object.keys(b)[0];
-        
+        {console.log('Weekly', this.props)}
+        {
+          // console.log(this.props.meal.sort(this.compare)
+          alert(JSON.stringify(this.props.meals.sort((a, b) => {
+            const nameA = Object.keys(a)[0];
+            const nameB = Object.keys(b)[0];
+
           if (nameA < nameB) {
             return -1;
           }
           if (nameA > nameB) {
             return 1;
           }
-        
+
           // names must be equal
           return 0;
         })))
       }
         <h1>Weekly Meal Plan</h1>
-        
+
       </div>
     )
   }

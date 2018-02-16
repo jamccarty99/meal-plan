@@ -9,7 +9,7 @@ class MealRecipe extends Component {
   }
 
   render() {
-    const meal = this.props.meals[1] || {title:"",instructions:""}
+    const meal = this.props.meals[1] || {title:"",instructions:"",image:"",extendedIngredients:[[]]}
     return (
       <div className="container recipe">
         <h3 className="d-flex justify-content-center align-content-center mb-5">{meal.title}</h3>
