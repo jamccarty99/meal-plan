@@ -25,7 +25,6 @@ class SingleMeal extends Component {
     return (
       <div className="container">
       {console.log('single meal', this.props)}
-      <button className="btn btn-success" onClick={this.submit.bind(this)} >request data</button>
         <h2 className="text-center mb-5">Daily Meal Plan</h2>
         <h3 className="text-center mb-5">Info</h3>
         <div className="row">
