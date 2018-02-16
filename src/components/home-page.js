@@ -31,7 +31,6 @@ class HomePage extends React.Component {
     this.setState({diet: event.target.value});
   }
   handleExcludeChange(event) {
-    console.log(event.target.value);
     this.setState({exclude: event.target.value});
   }
   handleCaloriesChange(event) {
@@ -43,22 +42,13 @@ class HomePage extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(this.state.time);
-    console.log(this.state.diet);
-    console.log(this.state.exclude);
-    console.log(this.state.calories);
-    // We need to go and fetch weather data
+    console.log(this.state);
     this.props.fetchMealPlan().then(response => {
-      const meals = response.payload.data.meals
+      const meals = this.props.meals
       for (let i=0;i<meals.length;i++) {
         this.props.fetchMealData(meals[i].id)
       }
     })
-  }
-
-  onSubmit() {
-
-    console.log(this.state)
   }
 
   render() {
