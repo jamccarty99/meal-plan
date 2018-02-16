@@ -12,6 +12,7 @@ class Test extends Component {
       const meals = response.payload.data.meals
       for (let i=0;i<meals.length;i++) {
         this.props.fetchMealData(meals[i].id)
+        console.log(meals[i].id)
       }
     })
   }

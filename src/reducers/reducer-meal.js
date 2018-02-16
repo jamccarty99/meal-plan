@@ -7,20 +7,25 @@ export default function(state = [], action) {
         return {
           title: meal.title,
           id: meal.id,
-          image: meal.image,
-          readyInMinutes: meal.readyInMinutes
+          image: null,
+          readyInMinutes: null,
+          instructions: null,
+          extendedIngredients: []
         }
       })
       return state.concat(data);
     case FETCH_MEAL_DATA:
       const mealId = action.payload.data.id
-      const updatedMeal = state.find(meal => meal.id = mealId)
-      updatedMeal.image=action.payload.data.image
-      updatedMeal.instructions=action.payload.data.instructions
-      updatedMeal.extendedIngredients = action.payload.data.extendedIngredients
-      updatedMeal.readyInMinutes = action.payload.data.readyInMinutes
-      console.log(updatedMeal,state)
-      return state
+      const stateCopy = state.slice()
+      const updatedMeal = stateCopy.splice(state.findIndex(meal => meal.id==mealId),1)
+
+      updatedMeal[0].image = action.payload.data.image
+      updatedMeal[0].readyInMinutes = action.payload.data.readyInMinutes
+      updatedMeal[0].instructions = action.payload.data.instructions
+      updatedMeal[0].extendedIngredients.push(action.payload.data.extendedIngredients)
+
+      console.log("updatedMeals",stateCopy.concat(updatedMeal))
+
   }
   return state;
 }
