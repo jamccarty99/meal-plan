@@ -7,12 +7,11 @@ import {fetchMealPlan, fetchMealData} from '../actions'
 class Test extends Component {
   submit() {
 
-    // We need to go and fetch weather data
+    // We need to go and fetch meal data
     this.props.fetchMealPlan().then(response => {
-      const meals = response.payload.data.meals
+      const meals = this.props.meals
       for (let i=0;i<meals.length;i++) {
         this.props.fetchMealData(meals[i].id)
-        console.log(meals[i].id)
       }
     })
   }
