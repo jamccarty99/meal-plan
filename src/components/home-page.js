@@ -64,6 +64,7 @@ class HomePage extends React.Component {
               <option className="time" value="week">Week</option>
             </select>
           </label>
+        </div>
           <label className="control-label">
             Diet Type:
             <select className="form-control" value={this.state.diet} onChange={this.handleDietChange}>
@@ -92,7 +93,7 @@ class HomePage extends React.Component {
 
           <button type="submit" className="btn btn-primary">Create Meal Plan</button>
         </form>
-        <form>
+      </div>
 //   <div class="form-group row">
 //     <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
 //     <div class="col-sm-10">
@@ -148,7 +149,7 @@ class HomePage extends React.Component {
 //   </div>
 // </form>
 
-      </div>
+
     );
   }
 }
