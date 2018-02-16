@@ -35,17 +35,17 @@ class WeekMeal extends Component {
             const nameA = Object.keys(a)[0];
             const nameB = Object.keys(b)[0];
 
-          if (nameA < nameB) {
-            return -1;
-          }
-          if (nameA > nameB) {
-            return 1;
-          }
+            if (nameA < nameB) {
+              return -1;
+            }
+            if (nameA > nameB) {
+              return 1;
+            }
 
-          // names must be equal
-          return 0;
-        })))
-      }
+            // names must be equal
+            return 0;
+          })))
+        }
         <h1>Weekly Meal Plan</h1>
 
       </div>

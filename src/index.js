@@ -24,11 +24,11 @@ ReactDOM.render(
       <div>
         <Header />
         <Switch>
-          <Route path="/recipe" component={MealRecipe} />
           <Route path="/week" component={WeekMeal} />
-            <Route path="/test" component={Test} />
-            <Route path="/day" component={SingleMeal} />
-            <Route path="/" component={HomePage} />
+          <Route path="/test" component={Test} />
+          <Route path="/day" component={SingleMeal} />
+          <Route path="/:id" component={MealRecipe} />
+          <Route path="/" component={HomePage} />
           </Switch>
       </div>
     </BrowserRouter>
