@@ -2,17 +2,28 @@ import React, { Component } from 'react'
 import MealRecipe from './meal-recipe'
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-import {fetchMealPlan} from '../actions'
+import {fetchMealPlan, fetchMealData } from '../actions'
+
+import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import {faEdit} from '@fortawesome/fontawesome-pro-regular'
+import {faTrashAlt} from '@fortawesome/fontawesome-pro-regular'
 class SingleMeal extends Component {
 
   submit() {
 
-    // We need to go and fetch weather data
-    this.props.fetchMealPlan();
+    // We need to go and fetch meal data
+    this.props.fetchMealPlan().then(response => {
+      const meals = this.props.meals
+      for (let i=0;i<meals.length;i++) {
+        this.props.fetchMealData(meals[i].id)
+      }
+    })
   }
+
   render() {
     return (
       <div className="container">
+      {console.log('single meal', this.props)}
       <button className="btn btn-success" onClick={this.submit.bind(this)} >request data</button>
         <h2 className="text-center mb-5">Daily Meal Plan</h2>
         <h3 className="text-center mb-5">Info</h3>
@@ -24,9 +35,9 @@ class SingleMeal extends Component {
                 return (
                   <div key={i} className="card card-01">
                     <h3 className="card-header">{meal.title}</h3>
-                    <img className="card-img-top" src={`https://spoonacular.com/recipeImages/${meal.image}`} alt={meal.title} />
+                    <img className="card-img-top" src={meal.image} alt={meal.title} />
                     <div className="card-body">
-                      <span className="badge-box"><i className="fa fa-check"></i></span>
+                      <span className="badge-box"> <FontAwesomeIcon className="fa" icon={faEdit} /> </span>
                       <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       <a href="#" className="btn btn-default text-uppercase">Go to the recipe component</a>
                     </div>
@@ -46,7 +57,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchMealPlan }, dispatch);
+  return bindActionCreators({ fetchMealPlan , fetchMealData }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleMeal);
