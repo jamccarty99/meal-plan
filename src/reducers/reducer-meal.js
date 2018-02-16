@@ -18,7 +18,8 @@ export default function(state = [], action) {
           }
         })
         return state.concat(data);
-      } else {
+      } else if (action.payload.data.items) {
+        state = state.length == 3 ? [] : state
         state = state.length > 20 ?  [] : state
         const data = action.payload.data.items.map((meal,index) => {
             return {
