@@ -63,7 +63,7 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="search-form">
         <h1>Meal Plan Requests</h1>
         <form className="form-horizontal" onSubmit={this.handleSubmit}>
           <label className="control-label">
