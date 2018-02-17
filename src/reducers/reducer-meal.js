@@ -3,8 +3,9 @@ import { FETCH_MEAL_PLAN, FETCH_MEAL_DATA } from "../actions";
 export default function(state = [], action) {
   switch (action.type) {
     case FETCH_MEAL_PLAN:
+    //if a daily meal plan is searched for
       if (action.payload.data.meals) {
-        state = state.length > 2 ?  [] : state
+        state = state.length > 0 ?  [] : state
         const data = action.payload.data.meals.map((meal,index) => {
           return {
             day: 1,
@@ -18,9 +19,9 @@ export default function(state = [], action) {
           }
         })
         return state.concat(data);
+        //if a weekly meal plan is searched for - the data structure is different
       } else if (action.payload.data.items) {
-        state = state.length == 3 ? [] : state
-        state = state.length > 20 ?  [] : state
+        state = state.length < 0 ? [] : state
         const data = action.payload.data.items.map((meal,index) => {
             return {
               day: meal.day,
@@ -37,6 +38,7 @@ export default function(state = [], action) {
         console.log(newState)
         return newState
         }
+        //fetches the data for each individual meal in a meal plan
     case FETCH_MEAL_DATA:
           const mealId = action.payload.data.id
           const stateCopy = state.slice()
